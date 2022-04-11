@@ -1,0 +1,23 @@
+<h1>New Book</h1>
+
+<%= form_with model: @book do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+
+<h1>Books</h1>
+<% @books.each do |book| %>
+<div>
+  <%= link_to book_path(book.id) do %>
+  <%= image_tag 'no_image.jpg' %>
+  <% end %>
+  <P>Title<%= book.title %></P>
+  <P>Option<%= book.body %></P>
+</div>
+<% end %>
