@@ -2,7 +2,7 @@
 <div>
   <%= @book.title %>
   <%= @book.body %>
-  <%= image_tag 'no_image.jpg' %>
+  <%= image_tag @boo.user.get_profile_image(100,100) %>
   <%= @book.user.name %>
   <% if @book.user == current_user %>
     <%= link_to "Destroy",book_path(@book.id),method: :delete, "data-confirm" => "Are you sure?" %>
