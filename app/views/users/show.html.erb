@@ -1,10 +1,31 @@
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+<% end %>
+
 <h1>Users</h1>
 
 <div>
   <%= image_tag @user.get_profile_image(100,100) %>
   <%= @user.name %>
+</div>
+
+<div>
   <%= link_to "プロフィール編集",edit_user_path(@user) %>
 </div>
+
+<h1>New Book</h1>
+
+<%= form_with model: @book do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+
+  <%= f.submit 'Create Book' %>
+<% end %>
 
 <% @books.each do |book| %>
 <div>

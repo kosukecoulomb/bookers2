@@ -1,10 +1,33 @@
+<h1>Users</h1>
+<div>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <%= @user.name %>
+</div>
+
+<div>
+  <%= link_to "プロフィール編集",user_path(current_user) %>
+</div>
+
+<h1>New Book</h1>
+<%= form_with model: @book do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+
 <h1>Book detail</h1>
 <div>
-  <%= @book.title %>
-  <%= @book.body %>
-  <%= image_tag @boo.user.get_profile_image(100,100) %>
-  <%= @book.user.name %>
-  <% if @book.user == current_user %>
-    <%= link_to "Destroy",book_path(@book.id),method: :delete, "data-confirm" => "Are you sure?" %>
+  <%= image_tag @showbook.user.get_profile_image(100,100) %>
+  <%= @showbook.title %>
+  <%= @showbook.body %>
+  <%= @showbook.user.name %>
+  <% if @showbook.user == current_user %>
+    <%= link_to "Edit", edit_book_path(@showbook) %>
+    <%= link_to "Destroy", book_path(@showbook.id),method: :delete, "data-confirm" => "Are you sure?" %>
   <% end %>
 </div>

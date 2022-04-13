@@ -1,0 +1,16 @@
+<h1>User info</h1>
+<div>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <%= @user.name %>
+  <%= link_to "プロフィール編集",edit_user_path(@user) %>
+</div>
+
+<h1>Users</h1>
+<% @users.each do |user| %>
+<div>
+  <P>name<%= user.name %></P>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <%= link_to "show" , user_path(@user.id) %>
+</div>
+<% end %>
+
