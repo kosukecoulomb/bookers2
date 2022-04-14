@@ -4,6 +4,17 @@
       </div>
 <% end %>
 
+
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <h1>User info</h1>
 <div>
   <%= image_tag @user.get_profile_image(100,100) %>
@@ -28,10 +39,12 @@
 <h1>Books</h1>
 <% @books.each do |book| %>
 <div>
-  <%= link_to book_path(book.id) do %>
+  <%= link_to user_path(book.user.id) do %>
   <%= image_tag book.user.get_profile_image(100,100) %>
   <% end %>
-  <P>Title<%= book.title %></P>
-  <P>Opinion<%= book.body %></P>
+  <%= link_to book_path(book.id) do %>
+  <%= book.title %>
+  <% end %>
+  <%= book.body %>
 </div>
 <% end %>
