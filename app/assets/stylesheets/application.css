@@ -23,9 +23,16 @@
   margin-bottom: 50px;
 }
 
-.box{
-  desplay: block;
+textfield{
+  margin-bottom: 20px;
 }
 
+textarea{
+  width: 100%;
+  height: 120px;
+}
 
+.btn btn-outline-secondary btn-block{
+  margin-bottom: 10px;
+}
 

@@ -38,7 +38,7 @@
           <p>Opinion</p>
           <%= f.text_area :body %>
           
-          <%= f.submit 'Create Book' %>
+          <%= f.submit 'Create Book',class: "btn btn-success" %>
         <% end %>
       </div>
     </div>
@@ -50,7 +50,6 @@
             <th scope="col" style="width: 15%"></th>
             <th scope="col" style="width: 15%">Title</th>
             <th scope="col" style="width: 30%">Opinion</th>
-            <th scope="col" style="width: 20%"></th>
           </tr>
           
           <% @books.each do |book| %>
@@ -66,7 +65,6 @@
                 <% end %>
               </td>
               <td><%= book.body %></td>
-              <td><%= link_to "show" , book_path(book.id) %></td>
           </tr>
           <% end %>
         </table>
