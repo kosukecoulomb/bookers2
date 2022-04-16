@@ -7,13 +7,31 @@
   </ul>
 <% end %>
 
-
-<h1>Users info</h1>
-<%= form_with model: @user do |f| %>
-  <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
-  <label for="inputImage">Image</label>
-  <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>  
-  <P>Introduction<%= f.text_field :introduction %></P>
-  <%= f.submit "Update User" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Users info</h1>
+      <%= form_with model: @user do |f| %>
+        <div class="form-group">
+          <label for="inputName">Name</label>
+          <div class="box">
+            <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" ,size: 40 %>
+          </div>
+        </div>
+        <div class="form-group">
+        <label for="inputImage">Image</label>
+          <div class="box">
+            <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <P>Introduction</P>
+          <div class="box">
+           <%= f.text_field :introduction ,size:40%>
+          </div>
+        </div>
+        <%= f.submit "Update User" %>
+      <% end %>
+    </div>
+  </div>
+</div.

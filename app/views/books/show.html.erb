@@ -9,7 +9,7 @@
     <div class="col-md-3">
       <h2>User info</h2>
         <%= image_tag @user.get_profile_image(100,100) %>
-        <table>
+        <table class="table">
           <tr>
             <th>name</th>
             <th><%= @user.name %></th>
@@ -20,9 +20,11 @@
           </tr>
         </table>
 
-        <div class="row">
+         <div class="row">
+          <button class="btn btn-outline-secondary btn-block">
           <%= link_to edit_user_path(@user), method: :get do %>
-          　<i class="fa-solid fa-user"></i>
+          　<i class="fas fa-user-cog"></i>
+          </button>
           <% end %>
         </div>
 
@@ -42,11 +44,11 @@
 
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
-      <table>
+      <table class="table">
         <tr>
           <td>
             <%= link_to user_path(@showbook.user.id) do %>
-              <%= image_tag @showbook.user.get_profile_image(100,100) %><br >
+              <%= image_tag @showbook.user.get_profile_image(80,80) %><br >
               <%= @showbook.user.name %>
             <% end %>
           </td>
