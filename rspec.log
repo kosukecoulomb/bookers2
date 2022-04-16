@@ -283,6 +283,6 @@ Userモデルのテスト
 [32m      投稿一覧画面でレンチアイコンが表示される[0m
 [32m      投稿詳細画面でレンチアイコンが表示される[0m
 
-Finished in 29.1 seconds (files took 0.9704 seconds to load)
+Finished in 29.15 seconds (files took 0.95155 seconds to load)
 [32m199 examples, 0 failures[0m
 
