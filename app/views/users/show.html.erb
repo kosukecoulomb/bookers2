@@ -1,13 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <div class="row">
-        <%= render 'info', user: @user %>
-      </div>
-
-      <div class="row">
-        <%= render 'books/new', book: @book %>
-      </div>
+      <%= render 'info', user: @user %>
+      <%= render 'books/new', book: @book %>
     </div>
 
     <div class="col-md-8 offset-md-1">    
