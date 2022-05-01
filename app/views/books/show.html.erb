@@ -14,7 +14,7 @@
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table">
-        <tr>
+        <tr id="book_<%= @book.id %>">
           <td>
             <%= link_to user_path(@book.user.id) do %>
               <%= image_tag @book.user.get_profile_image(80,80) %><br >
@@ -23,10 +23,10 @@
           </td>
           <td><%= @book.title %></td>
           <td><%= @book.body %></td>
-          <td id="favorite_buttons_<%= @book.id %>">
+          <td class="favorite_btn">
             <%= render "favorites/favorite", book: @book %>
           </td>
-          <td>
+          <td class="comments_count">
             <%= @book.book_comments.count %>コメント
           </td>
           <td>
@@ -44,13 +44,14 @@
         </tr>
       </table>
 
-      <div id="comments_area">
-        <%= render "book_comments/book_comments", book: @book %>
-      </div>
+      <table class="table book_comments">
+        <%= render "book_comments/index", book: @book %>
+      </table>
 
-      <div class="new_comment">
-        <%= render "book_comments/form", {book: @book, book_comment: @book_comment} %>
-      </div>
+      <%= form_with model:[@book, @book_comment] , local: false do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+      <% end %>
 
     </div>
   </div>
