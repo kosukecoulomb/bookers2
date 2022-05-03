@@ -11,11 +11,35 @@
       <th>introduction</th>
       <th><%= user.introduction %></th>
     </tr>
+    <tr>
+      <th>follows</th>
+      <th>
+        <%= link_to user_followings_path(user.id) do %>
+          <div class="info_followings_counts">
+            <%= user.followings.count %>
+          </div>
+        <% end %>
+      </th>
+    </tr>
+    <tr>
+      <th>followers</th>
+      <th>
+        <%= link_to user_followers_path(user.id) do %>
+          <div class="info_followers_counts">
+            <%= user.followers.count %>
+          </div>
+        <% end %>
+      </th>
+    </tr>
   </table>
   <div class="row mb-5">
-    <div class="btn btn-outline-secondary btn-block">
-    <%= link_to edit_user_path(user), method: :get do %>
-    　<i class="fas fa-user-cog"></i>
+    <% if user == current_user %>
+      <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block", method: :get do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    <% else %>
+      <div class="info_follow_btn">
+         <%= render 'relationships/btn', user: user %>
+      </div>
     <% end %>
-    </div>
   </div>

@@ -1,0 +1,6 @@
+$(".info_follow_btn").html("<%= j(render 'relationships/btn', user: @other_user) %>");
+$(".index_follow_btn").html("<%= j(render 'relationships/btn', user: @other_user) %>");
+$(".info_followings_counts").html("<%= @other_user.followings.count %>");
+$(".info_followers_counts").html("<%= @other_user.followers.count %>");
+$(".index_followings_counts").html("フォロー数:<%= @other_user.followings.count %>");
+$(".index_followers_counts").html("フォロワー数:<%= @other_user.followers.count %>");
