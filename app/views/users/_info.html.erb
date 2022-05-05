@@ -32,14 +32,15 @@
       </th>
     </tr>
   </table>
+
   <div class="row mb-5">
     <% if user == current_user %>
       <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block", method: :get do %>
         <i class="fas fa-user-cog"></i>
       <% end %>
     <% else %>
-      <div class="info_follow_btn">
-         <%= render 'relationships/btn', user: user %>
+      <div id="user_<%= user.id %>">
+        <%= render 'relationships/btn', user: user %>
       </div>
     <% end %>
   </div>
