@@ -1,36 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'info', user: @user %>
+      <%= render 'info', user: current_user %>
       <%= render 'books/new', book: @book %>
     </div>
 
     <div class="col-md-8 offset-md-1">
       <h1>Users</h1>
         <table class="table">
-          <tr>
-            <th scope="col">image</th>
-            <th scope="col">name</th>
-            <th scope="col"></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-
-          <% @users.each do |user| %>
-          <tr id="user_<%= user.id %>">
-            <td><%= image_tag user.get_profile_image(80,80) %></td>
-            <td><P><%= user.name %></P></td>
-            <td class="index_followings_counts">フォロー数:<%= user.followings.count %></td>
-            <td class="index_followers_counts">フォロワー数:<%= user.followers.count %></td>
-            <td>
-            <% if user != current_user %>
-              <%= render 'relationships/btn', user: user %>
-            <% end %>
-            </td>
-            <td><%= link_to "Show", user_path(user) %></td>
-          </tr>
-          <% end %>
+          <thead>
+            <tr>
+              <th scope="col">image</th>
+              <th scope="col">name</th>
+              <th scope="col"></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <%= render 'index', users: @users %>
+          </tbody>
         </table>
     </div>
   </div>

@@ -1,10 +1,12 @@
 class RelationshipsController < ApplicationController
   def create
+    @users = User.all
     @user = User.find(params[:user_id])
     current_user.follow(params[:user_id])
   end
 
   def destroy
+    @users = User.all
     @user = User.find(params[:user_id])
     current_user.unfollow(params[:user_id])
   end

@@ -1,6 +1,7 @@
 $("#user_<%= @user.id %>").html("<%= j(render 'relationships/btn', user: @user) %>");
-$("#user_<%= @user.id %>").html("<%= j(render 'relationships/btn', user: @user) %>");
-$("#user_<%= @user.id %>.info_followings_counts").html('<%= @user.followings.count %>');
-$("#user_<%= @user.id %>.info_followers_counts").html('<%= @user.followers.count %>');
-$("#user_<%= @user.id %>.index_followings_counts").html('フォロー数:<%= @user.followings.count %>');
-$("#user_<%= @user.id %>.index_followers_counts").html('フォロワー数:<%= @user.followers.count %>');
+$(".info_followings_counts").html('<%= link_to user_followings_path(@user.id) do %><%= @user.followings.count %><% end %>');
+$(".info_followers_counts").html('<%= link_to user_followers_path(@user.id) do %><%= @user.followers.count %><% end %>');
+$("#user_index").html('<%= j(render 'users/index', users: @users) %>');
+$("#user_index").html('<%= j(render 'users/index', users: @users) %>');
+$(".index_followings_counts").html('フォロー数:<%= @user.followings.count %>');
+$(".index_followers_counts").html('フォロワー数:<%= @user.followers.count %>');
