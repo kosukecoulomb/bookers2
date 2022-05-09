@@ -2,8 +2,8 @@
   <tr>
     <td><%= image_tag user.get_profile_image(80,80) %></td>
     <td><P><%= user.name %></P></td>
-    <td class="index_followings_counts">フォロー数:<%= user.followings.count %></td>
-    <td class="index_followers_counts">フォロワー数:<%= user.followers.count %></td>
+    <td id="index_followings_counts_<%= user.id %>">フォロー数:<%= user.followings.count %></td>
+    <td id="index_followers_counts_<%= user.id %>">フォロワー数:<%= user.followers.count %></td>
     <td>
     <% if user != current_user %>
       <div id="user_<%= user.id %>">
